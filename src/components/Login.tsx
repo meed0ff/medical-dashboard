@@ -37,9 +37,6 @@ export default function Login() {
 
   function submitData(data: any) {
     console.log(data);
-    toast("", {
-      description: JSON.stringify(data),
-    });
   }
 
   // register image preview
