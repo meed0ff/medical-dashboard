@@ -7,9 +7,23 @@
     .nav-links-custom {
       color: #71717a;
       background-color: transparent;
+    }
+  }
+}
 
-      :hover {
-        color: #09090b;
+.dark {
+  .mob-nav {
+    .navbar-links {
+      .active {
+        color: white !important;
+      }
+      .nav-links-custom {
+        color: #71717a;
+        background-color: transparent;
+
+        :hover {
+          color: white;
+        }
       }
     }
   }
@@ -22,9 +36,5 @@
   .nav-links-custom {
     color: #71717a;
     background-color: transparent;
-
-    :hover {
-      color: #09090b;
-    }
   }
 }

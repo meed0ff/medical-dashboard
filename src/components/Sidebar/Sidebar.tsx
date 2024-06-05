@@ -39,6 +39,7 @@ import { Link, NavLink } from "react-router-dom";
 import _ from "lodash";
 import "./Sidebar.css";
 import { useState } from "react";
+import { ModeToggle } from "./ThemeToggle";
 
 type ButtonProps = {
   onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
@@ -71,7 +72,7 @@ const Sidebar = ({ onClick, ...rest }: ButtonProps) => {
                   onClick={() => breadcrumbChangeFn("")}
                   to={"/dashboard"}
                   // href="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8 nav-links-custom"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:!text-foreground md:h-8 md:w-8 nav-links-custom"
                 >
                   <Home className="h-5 w-5" />
                   <span className="sr-only">Dashboard</span>
@@ -85,7 +86,7 @@ const Sidebar = ({ onClick, ...rest }: ButtonProps) => {
                   onClick={() => breadcrumbChangeFn("orders")}
                   to={"/orders"}
                   // href="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8 nav-links-custom"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:!text-foreground md:h-8 md:w-8 nav-links-custom"
                 >
                   <ShoppingCart className="h-5 w-5" />
                   <span className="sr-only">Orders</span>
@@ -99,7 +100,7 @@ const Sidebar = ({ onClick, ...rest }: ButtonProps) => {
                   onClick={() => breadcrumbChangeFn("products")}
                   to={"/products"}
                   // href="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8 nav-links-custom"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:!text-foreground md:h-8 md:w-8 nav-links-custom"
                 >
                   <Package className="h-5 w-5" />
                   <span className="sr-only">Products</span>
@@ -113,7 +114,7 @@ const Sidebar = ({ onClick, ...rest }: ButtonProps) => {
                   onClick={() => breadcrumbChangeFn("customers")}
                   to={"/customers"}
                   // href="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8 nav-links-custom"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:!text-foreground md:h-8 md:w-8 nav-links-custom"
                 >
                   <Users2 className="h-5 w-5" />
                   <span className="sr-only">Customers</span>
@@ -127,7 +128,7 @@ const Sidebar = ({ onClick, ...rest }: ButtonProps) => {
                   onClick={() => breadcrumbChangeFn("Analytics")}
                   to={"/analytics"}
                   // href="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8 nav-links-custom"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:!text-foreground md:h-8 md:w-8 nav-links-custom"
                 >
                   <LineChart className="h-5 w-5" />
                   <span className="sr-only">Analytics</span>
@@ -155,8 +156,8 @@ const Sidebar = ({ onClick, ...rest }: ButtonProps) => {
           </TooltipProvider>
         </nav>
       </aside>
-      <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
-        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+      <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14 bg-background">
+        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:px-6">
           <Sheet>
             <SheetTrigger asChild>
               <Button size="icon" variant="outline" className="sm:hidden">
@@ -164,7 +165,7 @@ const Sidebar = ({ onClick, ...rest }: ButtonProps) => {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="sm:max-w-xs">
+            <SheetContent side="left" className="sm:max-w-xs mob-nav">
               <nav className="grid gap-6 text-lg font-medium navbar-links">
                 <Link
                   to={"/"}
@@ -175,7 +176,7 @@ const Sidebar = ({ onClick, ...rest }: ButtonProps) => {
                 </Link>
                 <NavLink
                   to={"/dashboard"}
-                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground nav-links-custom"
+                  className="flex items-center gap-4 px-2.5 text-muted-foreground !hover:text-foreground nav-links-custom"
                 >
                   <Home className="h-5 w-5" />
                   Dashboard
@@ -191,7 +192,7 @@ const Sidebar = ({ onClick, ...rest }: ButtonProps) => {
                 <NavLink
                   onClick={() => breadcrumbChangeFn("orders")}
                   to={"/products"}
-                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground nav-links-custom"
+                  className="flex items-center gap-4 px-2.5 text-muted-foreground !hover:text-foreground nav-links-custom"
                 >
                   <Package className="h-5 w-5" />
                   Products
@@ -199,14 +200,14 @@ const Sidebar = ({ onClick, ...rest }: ButtonProps) => {
                 <NavLink
                   onClick={() => breadcrumbChangeFn("orders")}
                   to={"/customers"}
-                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground nav-links-custom"
+                  className="flex items-center gap-4 px-2.5 text-muted-foreground !hover:text-foreground nav-links-custom"
                 >
                   <Users2 className="h-5 w-5" />
                   Customers
                 </NavLink>
                 <NavLink
                   to={"/analytics"}
-                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground nav-links-custom"
+                  className="flex items-center gap-4 px-2.5 text-muted-foreground !hover:text-foreground nav-links-custom"
                 >
                   <LineChart className="h-5 w-5" />
                   Analytics
@@ -237,6 +238,7 @@ const Sidebar = ({ onClick, ...rest }: ButtonProps) => {
               className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[336px]"
             />
           </div>
+          <ModeToggle />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
@@ -253,7 +255,7 @@ const Sidebar = ({ onClick, ...rest }: ButtonProps) => {
                 />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" className="bg-background">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Settings</DropdownMenuItem>
