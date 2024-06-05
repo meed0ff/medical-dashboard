@@ -18,7 +18,6 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import {
@@ -41,11 +40,7 @@ import "./Sidebar.css";
 import { useState } from "react";
 import { ModeToggle } from "./ThemeToggle";
 
-type ButtonProps = {
-  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
-};
-
-const Sidebar = ({ onClick, ...rest }: ButtonProps) => {
+const Sidebar = () => {
   const [active, setActive] = useState("");
 
   const breadcrumbChangeFn = (name: string) => {
