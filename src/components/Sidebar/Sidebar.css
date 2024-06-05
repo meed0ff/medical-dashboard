@@ -1,0 +1,30 @@
+.sidebar {
+  .navbar-links {
+    .active {
+      color: #18181b !important;
+      background-color: #f4f4f5 !important;
+    }
+    .nav-links-custom {
+      color: #71717a;
+      background-color: transparent;
+
+      :hover {
+        color: #09090b;
+      }
+    }
+  }
+}
+
+.navbar-links {
+  .active {
+    color: #18181b !important;
+  }
+  .nav-links-custom {
+    color: #71717a;
+    background-color: transparent;
+
+    :hover {
+      color: #09090b;
+    }
+  }
+}
