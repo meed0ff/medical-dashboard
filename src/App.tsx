@@ -1,12 +1,7 @@
 import "./App.css";
-// import { Login } from "./components/Login";
-import { Stats } from "./components/Stats"
 
 function App() {
-  return <>
-    {/* <Login /> */}
-    <Stats />
-  </>;
+  return <></>;
 }
 
 export default App;
