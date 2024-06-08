@@ -1,7 +1,12 @@
 import "./App.css";
+import Dynamictable from "./components/Dynamictable";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Dynamictable />
+    </>
+  );
 }
 
 export default App;
